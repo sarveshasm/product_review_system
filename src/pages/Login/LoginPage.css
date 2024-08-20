@@ -1,0 +1,109 @@
+.background {
+    background-color: #0F172A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .inner-container {
+    background-color: #1E293B;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 20vw;
+  }
+  
+  @media (max-width:999px) {
+    .inner-container{
+        width: 60vw;
+    }
+    
+  }
+  .welcome-logo {
+    color: white;
+    letter-spacing: 1.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bit {
+    width: 200px; 
+    height: auto;
+  }
+  
+  .input-field {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: rgb(149 162 175);
+
+  }
+  .input-field:focus {
+    outline: none; 
+    border-color: transparent; 
+  }
+  
+  .button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0EA5E9;
+    font-family: "Signika Negative", sans-serif;
+    letter-spacing: 1.5px;
+
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    
+  }
+  
+  .google-button {
+    width: 100%;
+    display: flex;
+    font-family: "Signika Negative", sans-serif;
+letter-spacing: 1.5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0EA5E9;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .google-logo {
+    width: 30px; 
+    height: auto;
+    margin-right: 10px;
+  }
+
+ 
+  
+  .form-input{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  hr {
+    border: none;
+    height: 3px;
+    background-color: rgb(149 162 175);
+    margin: 20px 0;
+    border-radius: 5px;
+    font-weight: bold; 
+  }
