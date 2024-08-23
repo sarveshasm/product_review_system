@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Modal from "@mui/material/Modal";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import LogoutIcon from '@mui/icons-material/Logout';
-import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
 import { Button } from "@mui/material";
-
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 function TopBar(props) {
   const [modalOpen, setModalOpen] = useState(false);
- 
+  const navigate = useNavigate(); 
+
   const handleOpenModal = () => {
     setModalOpen(true);
   };
@@ -16,13 +17,18 @@ function TopBar(props) {
   const handleCloseModal = () => {
     setModalOpen(false);
   };
-  const logout = async () => {
+
+  const logout = () => {
     try {
-    
+      Cookies.remove('userRole');
+      window.location.reload();
+      setTimeout(() => {
+        navigate("/loginpage");
+      }, 100); 
     } catch (error) {
+      console.error("Logout error: ", error);
     }
   };
-  
 
   return (
     <div
@@ -47,14 +53,14 @@ function TopBar(props) {
         <div onClick={props.sidebar} className="sidebar-menu">
           <MenuRoundedIcon sx={{ color: "#fff", cursor: "pointer" }} />
         </div>
-        <div className="app-name">PRODUCT DEVELOPEMENT PORTAL</div>
+        <div className="app-name">PRODUCT DEVELOPMENT PORTAL</div>
       </div>
       <div className="topbar-right-content">
         <div>
           <p className="user-name"></p>
         </div>
         <div onClick={handleOpenModal}>
-          <LogoutIcon sx={{ color: "#1c0c6a", cursor: "pointer" }} />
+          <LogoutIcon sx={{ color: "#ffff", cursor: "pointer" }} />
         </div>
       </div>
       <Modal
@@ -88,11 +94,14 @@ function TopBar(props) {
             Are you sure you want to logout?
           </h3>
           <div className="logout-buttons">
-            <Button onClick={handleCloseModal} label="CANCEL" />
+            <Button onClick={handleCloseModal} variant="outlined">CANCEL</Button>
             <Button
               onClick={logout}
-              label="LOGOUT"
-            />
+              variant="contained"
+              color="primary"
+            >
+              LOGOUT
+            </Button>
           </div>
         </div>
       </Modal>
